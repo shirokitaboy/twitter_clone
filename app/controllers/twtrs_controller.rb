@@ -1,12 +1,18 @@
 class TwtrsController < ApplicationController
   before_action :set_twtr, only: [:show, :edit, :update, :destroy]
-
+  def home
+  end
+  
   def index
     @tweets = Tweet.all
   end
 
   def new
-    @tweet = Tweet.new
+    if params[:back]
+      @tweet = Tweet.new(tweet_params)
+    else
+      @tweet = Tweet.new
+    end
   end
 
   def create
@@ -42,6 +48,7 @@ class TwtrsController < ApplicationController
 
   def confirm
     @tweet = Tweet.new(tweet_params)
+    render :new if @tweet.invalid?
   end
 
 end

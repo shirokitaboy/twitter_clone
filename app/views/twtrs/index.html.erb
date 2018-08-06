@@ -1,15 +1,17 @@
 <h1>つぶやき一覧</h1>
 <p><%= notice %></p>
 
-<table>
+<table align="center">
 <% @tweets.each do |tweet| %>
-  <tr>
+  <tr class="table_content">
     <td><%= tweet.content %></td>
-    <td><%= link_to '詳細を確認する', twtr_path(tweet.id) %></td>
-    <td><%= link_to "編集する", edit_twtr_path(tweet.id) %></td>
-    <td><%= link_to 'ブログを削除する', twtr_path(tweet.id), method: :delete %></td>
+  </tr>
+  <tr class="table_botom">
+    <td><%= link_to '詳細', twtr_path(tweet.id), class: 'btn btn-default' %></td>
+    <td><%= link_to "編集", edit_twtr_path(tweet.id), class: 'btn btn-info'  %></td>
+    <td><%= link_to '削除', twtr_path(tweet.id), method: :delete,data: { confirm: '本当に削除しますか?' }, class: 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </table>
-<%= link_to '新しくブログを投稿する', new_twtr_path %>
-<%= link_to '一覧画面にもどる', twtrs_path %>
+
+<%= link_to '一覧画面リロード', twtrs_path %>
