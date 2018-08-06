@@ -12,7 +12,7 @@ class TwtrsController < ApplicationController
   def create
   @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to new_twtr_path, notice: "ブログを作成しました！"
+      redirect_to twtrs_path, notice: "ブログを作成しました！"
     else
       render 'new'
     end
@@ -38,6 +38,10 @@ class TwtrsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def confirm
+    @tweet = Tweet.new(tweet_params)
   end
 
 end
