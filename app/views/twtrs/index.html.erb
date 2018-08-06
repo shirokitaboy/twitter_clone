@@ -1,0 +1,14 @@
+<h1>つぶやき一覧</h1>
+
+<table>
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.content %></td>
+    <td><%= link_to '詳細を確認する', twtr_path(tweet.id) %></td>
+    <td><%= link_to "編集する", edit_twtr_path(tweet.id) %></td>
+    <td><%= link_to 'ブログを削除する', twtr_path(tweet.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しくブログを投稿する', new_twtr_path %>
+<%= link_to '一覧画面にもどる', twtrs_path %>
