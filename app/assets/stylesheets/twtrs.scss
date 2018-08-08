@@ -69,7 +69,7 @@ ul{
     text-align:center;
 }
 .contents li{
-    background-color:#F3A7AB;
+    background-color:#b0c4de;
     color:#fff;
     padding:10% 10%;
     box-sizing: border-box;
@@ -96,7 +96,32 @@ h1 {
     -webkit-margin-end: 0px;
     font-weight: bold;
 }
-.bk_img{
-height: 300px;
-overflow: auto;
+.bk_img {
+ background-image: url('../unificDSC08538_TP_V.jpg');/*背景画像*/
+ background-attachment: fixed;/*画面からの相対位置（背景固定）*/
+ background-size: cover;/*背景サイズ*/
+ }
+ .about{
+  height: 250px;
+ }
+.capture{
+overflow: hidden;
+width: 20px;
+height: 20px;
+position: relative;
+}
+.function-images {
+  width: 100%;
+  display: table;
+  margin-top: 60px;
+  table-layout: fixed;
+}
+
+.function-image {
+  display: table-cell;
+  width: 100%;
+}
+.function-image img{
+  width: 50%;
+  height:auto;
 }
