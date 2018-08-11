@@ -46,6 +46,7 @@ html {
 
 body {
   text-align: center;
+  min-width:960px;
 }
 li{
     list-style:none;
@@ -126,7 +127,4 @@ position: relative;
 .function-image img{
   width: 50%;
   height:auto;
-}
-.row_A{
-  background: rgba(255,0,0,0.3);
 }
