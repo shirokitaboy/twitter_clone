@@ -97,9 +97,11 @@ h1 {
     font-weight: bold;
 }
 .bk_img {
+ padding-bottom: 100px;
  background-image: url('../unificDSC08538_TP_V.jpg');/*背景画像*/
- background-attachment: fixed;/*画面からの相対位置（背景固定）*/
- background-size: cover;/*背景サイズ*/
+ background-attachment: fixed;
+ background-size: cover;
+ height: 500px;
  }
  .about{
   height: 250px;
@@ -124,4 +126,7 @@ position: relative;
 .function-image img{
   width: 50%;
   height:auto;
+}
+.row_A{
+  background: rgba(255,0,0,0.3);
 }
