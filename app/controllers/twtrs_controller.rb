@@ -1,8 +1,9 @@
 class TwtrsController < ApplicationController
   before_action :set_twtr, only: [:show, :edit, :update, :destroy]
+  before_action :login_ck, only: [:new, :edit, :show, :destroy]
   def home
   end
-  
+
   def index
     @tweets = Tweet.all
   end
@@ -17,6 +18,7 @@ class TwtrsController < ApplicationController
 
   def create
   @tweet = Tweet.new(tweet_params)
+  @tweet.user_id = current_user.id
     if @tweet.save
       redirect_to twtrs_path, notice: "ブログを作成しました！"
     else
@@ -26,6 +28,7 @@ class TwtrsController < ApplicationController
 
   def show
     #@tweet = Tweet.find(params[:id])
+    @favorite = current_user.favorites.find_by(tweet_id: @tweet.id)
   end
 
   def edit
@@ -51,8 +54,6 @@ class TwtrsController < ApplicationController
     render :new if @tweet.invalid?
   end
 
-end
-
 private
   def tweet_params
     params.require(:tweet).permit(:content)
@@ -61,3 +62,11 @@ private
   def set_twtr
     @tweet = Tweet.find(params[:id])
   end
+
+  def login_ck
+    unless current_user
+      flash[:notice] = '失敗しました'
+      render new_session_path
+    end
+  end
+end
