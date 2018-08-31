@@ -20,6 +20,7 @@ class TwtrsController < ApplicationController
   @tweet = Tweet.new(tweet_params)
   @tweet.user_id = current_user.id
     if @tweet.save
+      ContactMailer.contact_mail(@tweet).deliver
       redirect_to twtrs_path, notice: "ブログを作成しました！"
     else
       render 'new'
@@ -54,7 +55,8 @@ class TwtrsController < ApplicationController
     render :new if @tweet.invalid?
   end
 
-private
+  private
+
   def tweet_params
     params.require(:tweet).permit(:content)
   end

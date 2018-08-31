@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'twtrs#home'
   resources :contacts
   get 'sessions/new'
 
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  get '/', to: 'twtrs#home'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
