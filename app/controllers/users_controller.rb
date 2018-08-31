@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
     @favorite_tweets = @user.favorite_tweets
   end
 
