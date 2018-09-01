@@ -10,7 +10,16 @@
     </ul>
   </div>
 <% end %>
-
+<p>
+  <div>
+  <p>
+    <strong>Image:</strong>
+    <%= @tweet.image %>
+    <p><%= image_tag(@tweet.image.url) if @tweet.image.url %></p>
+    <%= form.file_field :image, id: :feed_image %>
+  </p>
+  </div>
+<p>
 <div class="twtr_title">
   <%= form.label :入力欄 %>
   <%= form.text_field :content %>

@@ -12,17 +12,24 @@
 <% end %>
 
 <%= form_with(model: @user, local: true) do |f| %>
+  <div align="center">
+  <%= f.label :icon %>
+  <%= f.file_field :icon, id: :feed_icon %>
+  <%= f.hidden_field :icon_cache %>
+  </div>
+  <br>
   <%= f.label :name %>
   <%= f.text_field :name %>
-
+  <br>
   <%= f.label :email %>
   <%= f.email_field :email %>
-
+  <br>
   <%= f.label :password %>
   <%= f.password_field :password %>
-
+  <br>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
+  <br>
 <p>
 <p>
   <button type="submit" class="btn btn-primary">Create my account</button>
