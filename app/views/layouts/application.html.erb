@@ -16,7 +16,7 @@
         <li><a href="/twtrs/new">新規投稿</a></li>
       </ul>
     </header>
-
+    <div id="content">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
@@ -30,7 +30,7 @@
       <% end %>
 
     <%= yield %>
-
+  </div>
     <footer>
       <p>製作者 鍵本哲宏</p>
       <p> 2018 May graduating class</p>
