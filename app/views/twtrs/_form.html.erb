@@ -14,7 +14,6 @@
   <div align="center">
   <p>
     <strong>Image:</strong>
-    <%= @tweet.image %>
     <p><%= image_tag(@tweet.image.url) if @tweet.image.url %></p>
     <%= form.file_field :image, id: :feed_image %>
   </p>
